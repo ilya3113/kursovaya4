@@ -30,14 +30,14 @@ def test_get_vacancies_check_salary(fixture_class_valid):
 def test_get_vacancies_len_is_zero(fixture_class_number):
     vacancy = fixture_class_number
     assert len(vacancy.salary_all) < 2
-    assert vacancy.message == "Vacancy not found"
+    assert vacancy.message == "Вакансия не найдена"
 
 
 def test_get_top_vacancies_valid(fixture_class_valid):
     vacancy = fixture_class_valid
     vacancy.salary_all = [{"salary": None}, {"salary": {"from": None}}, {"salary": {"from": 100}}]
 
-    assert vacancy.get_top_vacancies() == 'Vacancy not found'
+    assert vacancy.get_top_vacancies() == 'Вакансия не найдена'
 
     vacancy = fixture_class_valid
     vacancy.salary_all = [{"salary": None}, {"salary": {"from": None, "to": 1000}},
@@ -49,4 +49,4 @@ def test_get_top_vacancies_valid(fixture_class_valid):
 
 def test_get_vacancies_len_dict(fixture_class_valid):
     vacancy = fixture_class_valid
-    assert vacancy.get_vacancies({}, 10000) == "Vacancy not found"
+    assert vacancy.get_vacancies({}, 10000) == "Вакансия не найдена"

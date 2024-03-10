@@ -17,9 +17,9 @@ def test_get_vacancy_from_api():
     vacancy2.get_vacancy_from_api()
     vacancy3.get_vacancy_from_api()
 
-    assert vacancy1.message == "Vacancies found"
-    assert vacancy2.message == "Vacancy not found"
-    assert vacancy3.message == "Vacancies found"
+    assert vacancy1.message == "Вакансия найдена"
+    assert vacancy2.message == "Вакансия не найдена"
+    assert vacancy3.message == "Вакансия найдена"
 
 
 def test_save_info_valid():
@@ -33,4 +33,4 @@ def test_save_info_zero_len():
     vacancy1 = GetVacancies(1)
 
     vacancy1.save_info()
-    assert vacancy1.message == "Vacancy not found"
+    assert vacancy1.message == "Вакансия не найдена"
