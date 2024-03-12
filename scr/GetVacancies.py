@@ -5,18 +5,15 @@ import requests
 
 from scr.config import DATA
 from scr.AbstractHh import AbstractHh
+from scr.JsonFail import JsonFail
 
-
-class GetVacancies(AbstractHh):
+class GetVacancies(AbstractHh, JsonFail):
     all = []
 
     def __init__(self, name_vacancy: str):
         self.name_vacancy: str = name_vacancy
         self.message = "Найденные вакансии"
         self.all_vacancy = self.get_vacancy_from_api()
-
-    def __repr__(self):
-        return f"{self.all_vacancy}"
 
     def get_vacancy_from_api(self) -> str | Any:
         """
@@ -30,16 +27,3 @@ class GetVacancies(AbstractHh):
         else:
             self.message = "Вакансия не найдена"
             return self.message
-
-    def save_info(self) -> str or list:
-        """
-        Создан json-файл с информацией о вакансиях
-        """
-
-        if len(self.all_vacancy) == 0:
-            self.message = "Вакансия не найдена"
-            return self.message
-        else:
-            with open(DATA, 'w', encoding='utf-8') as file:
-                file.write(json.dumps(self.all_vacancy, ensure_ascii=False))
-            return self.all_vacancy
