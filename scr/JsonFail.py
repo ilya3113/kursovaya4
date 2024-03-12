@@ -2,11 +2,11 @@ import json
 
 from scr.config import DATA
 from scr.AbstractJSON import AbstractJSON
-
-class JsonFail(AbstractJSON):
-    def __init__(self):
+from scr.GetVacancies import GetVacancies
+class JsonFail(AbstractJSON,GetVacancies):
+    def __init__(self, name_vacancy: str):
+        super().__init__(name_vacancy)
         self.message = "Найденные вакансии"
-        self.all_vacancy = self.get_vacancy_from_api()
 
     def __repr__(self):
         return f"{self.all_vacancy}"

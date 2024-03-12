@@ -1,8 +1,7 @@
-from scr.GetVacancies import GetVacancies
 from collections import defaultdict
+from scr.JsonFail import JsonFail
 
-
-class CompareVacancies(GetVacancies):
+class CompareVacancies(JsonFail):
     def __init__(self, name_vacancy: str):
         super().__init__(name_vacancy)
         self.sort_salary: dict = defaultdict(list)

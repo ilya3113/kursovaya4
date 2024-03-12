@@ -5,9 +5,8 @@ import requests
 
 from scr.config import DATA
 from scr.AbstractHh import AbstractHh
-from scr.JsonFail import JsonFail
 
-class GetVacancies(AbstractHh, JsonFail):
+class GetVacancies(AbstractHh):
     all = []
 
     def __init__(self, name_vacancy: str):
